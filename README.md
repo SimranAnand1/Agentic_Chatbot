@@ -64,19 +64,8 @@ Welcome to the RAG Chatbot project! This chatbot leverages the LangChain framewo
 ## Project Structure
 
 - `main.py`: Main application file containing the Streamlit setup and chatbot logic.
-- `us_census_data/`: Directory containing PDF documents for the PDF search tool.
 - `.env`: File to store environment variables.
   
 ```
 
-## Contributing
 
-Contributions/feedbacks are welcome! Please feel free to submit a Pull Request or open an issue for any bugs or feature requests.
-
-## Acknowledgments
-
-- A big thank you to Krish Naik's youtube tutorials (https://www.youtube.com/@krishnaik06) for guiding me through this project.
-- Thanks to the LangChain community for providing the tools and support for building this project.
-- Special thanks to Groq for their high-performance inference engine.
-
----

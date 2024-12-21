@@ -2,11 +2,10 @@ import streamlit as st
 import os
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import PyPDFDirectoryLoader
-from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.vectorstores import Chroma
+from sentence_transformers import SentenceTransformer
 from langchain.vectorstores import FAISS
 import time
 
@@ -15,7 +14,6 @@ load_dotenv()
 
 #Loading the groq api key
 groq_api_key = os.getenv('GROQ_API_KEY')
-openai_api_key = os.getenv("OPENAI_API_KEY")
 
 
 #Defining tools
@@ -28,29 +26,7 @@ wiki_wrapper = WikipediaAPIWrapper(top_k_results = 1, doc_content_chars_max=1000
 wiki = WikipediaQueryRun(api_wrapper = wiki_wrapper)
 
 
-
-
-#Tool 2: PDF Search Tool
-loader = PyPDFDirectoryLoader("./us_census_data")
-docs = loader.load()
-
-#Splitting the content into chunks
-documents = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100).split_documents(docs)
-
-#Storing chunks into vector DB
-#vectordb = Chroma.from_documents(documents, OpenAIEmbeddings())
-vectordb = FAISS.from_documents(documents, OpenAIEmbeddings())
-
-#Retriever
-retriever = vectordb.as_retriever()
-
-from langchain.tools.retriever import create_retriever_tool
-pdf_tool = create_retriever_tool(retriever, "pdf_search",
-                     "Search for information about US census data. For any questions about US census data, you must use this tool first!")
-
-
-
-#Tool 3: Arxiv tool
+#Tool 2: Arxiv tool
 from langchain_community.utilities import ArxivAPIWrapper
 from langchain_community.tools import ArxivQueryRun
 
@@ -58,7 +34,7 @@ arxiv_wrapper = ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=10000)
 arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper)
 
 
-tools = [wiki, arxiv, pdf_tool]
+tools = [wiki, arxiv]
 
 
 #Streamlit setup
