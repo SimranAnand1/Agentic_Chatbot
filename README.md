@@ -64,7 +64,6 @@ Welcome to the RAG Chatbot project! This chatbot leverages the LangChain framewo
 ## Project Structure
 
 - `main.py`: Main application file containing the Streamlit setup and chatbot logic.
-- `.env`: File to store environment variables.
   
 ```
 
