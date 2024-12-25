@@ -28,10 +28,12 @@ Agentic RAG Chatbot is an AI-powered chatbot designed to provide accurate and re
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/SimranAnand1/Agentic_RAG_Chatbot.git
+   
    cd Agentic_RAG_Chatbot
 
 2. **Create a virtual environment**:
 python -m venv agent_env
+
 source agent_env/bin/activate  # On Windows use `agent_env\Scripts\activate
 
 3. **Install dependencies**:
@@ -39,6 +41,9 @@ pip install -r requirements.txt
 
 4. **Run commands**:
 streamlit run Agent/agentic_rag.py (for document search)
+
 streamlit run crewAI_agent.py  (for coding agent)
+
 streamlit run langchain_agent.py  (for web search tool, arxiv and wikipedia search)
+
 streamlit run pydanticAI_agent.py  (for agentic bot with typesafe valdation and streaming)
