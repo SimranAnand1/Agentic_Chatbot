@@ -1,4 +1,4 @@
-# Agentic RAG Chatbot
+# Agentic AI Chatbot
 
 Agentic RAG Chatbot is an AI-powered chatbot designed to provide accurate and relevant information by leveraging various technologies and APIs. This project integrates language models, document processing, and interactive web interfaces to create a robust and efficient chatbot.
 
@@ -27,7 +27,7 @@ Agentic RAG Chatbot is an AI-powered chatbot designed to provide accurate and re
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/SimranAnand1/Agentic_RAG_Chatbot.git
+   git clone https://github.com/SimranAnand1/Agentic_Chatbot.git
    cd Agentic_RAG_Chatbot
 
 2. **Create a virtual environment**:
