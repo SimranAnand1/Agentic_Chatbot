@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
+from dotenv import load_dotenv
 
 from crewai import Agent, Task, Crew
-from langchain_groq import ChatGroq
+
 from crewai import LLM
+load_dotenv()
 
 
 def main():
