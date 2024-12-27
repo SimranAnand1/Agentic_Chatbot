@@ -9,6 +9,9 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain_community.tools import DuckDuckGoSearchRun
 
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def load_pdfs_from_folder(folder_path):
     """
@@ -35,7 +38,7 @@ def main():
     # Sidebar for customization
     st.sidebar.title('Settings')
     system_prompt = st.sidebar.text_input("System prompt:", value="You are a helpful assistant.")
-    model = st.sidebar.selectbox('Choose a model', ['llama3-8b-8192', 'mixtral-8x7b-32768', 'gemma-7b-it'])
+    model = st.sidebar.selectbox('Choose a model', ['llama3-8b-8192', 'mixtral-8x7b-32768', 'gemma2-9b-it'])
     memory_length = st.sidebar.slider('Memory length:', 1, 10, value=5)
 
     # Initialize conversation memory
