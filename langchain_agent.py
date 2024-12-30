@@ -38,7 +38,7 @@ tools = [wiki, arxiv]
 
 
 #Streamlit setup
-st.title("Chatbot using Groq")
+st.title("Chatbot using Langchain Agent")
 llm = ChatGroq(groq_api_key=groq_api_key, model_name="llama3-8b-8192")
 
 

@@ -32,8 +32,8 @@ def load_pdfs_from_folder(folder_path):
     return documents
 
 def main():
-    st.title("AI Chatbot with Groq, Browser Search, and Document Retrieval")
-    st.write("Interact with the AI chatbot powered by Groq and LangChain with added browser search and document retrieval features.")
+    st.title("RAG Agent with Browser Search and Document Retrieval")
+    st.write("Interact with the Agentic AI RAG chatbot powered LangChain with added browser search and document retrieval features.")
 
     # Sidebar for customization
     st.sidebar.title('Settings')

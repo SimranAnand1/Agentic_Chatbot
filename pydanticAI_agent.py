@@ -24,7 +24,7 @@ def get_or_create_event_loop():
         return loop
 
 def main():
-    st.title("AI Chatbot with Pydantic-AI and Groq")
+    st.title("AI Chatbot with Pydantic-AI Agent")
 
     # Sidebar for settings and chat history
     st.sidebar.title("Settings")
