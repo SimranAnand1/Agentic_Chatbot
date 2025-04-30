@@ -1,0 +1,108 @@
+import os
+import streamlit as st
+from dotenv import load_dotenv
+from langchain_groq import ChatGroq
+from langchain_community.tools import DuckDuckGoSearchRun
+from langchain.document_loaders import PyPDFLoader
+from langchain.vectorstores import FAISS
+from sentence_transformers import SentenceTransformer
+from langchain.embeddings import HuggingFaceEmbeddings
+from crewai import Agent, Task, Crew, Process
+
+# Load environment variables
+load_dotenv()
+
+# Set up the language model
+llm = ChatGroq(
+    groq_api_key=os.getenv("GROQ_API_KEY"),
+    model_name="llama3-8b-8192"
+)
+
+from langchain.tools import DuckDuckGoSearchRun, Tool
+
+search = DuckDuckGoSearchRun()
+
+search_tool = Tool(
+    name="DuckDuckGo Search",
+    func=search.run,
+    description="Useful for answering questions about current events."
+)
+
+# Streamlit UI
+st.title("CrewAI RAG Chatbot")
+
+# Sidebar for customization
+st.sidebar.title('Settings')
+model = st.sidebar.selectbox(
+    'Choose a model',
+    ['llama3-8b-8192', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+)
+
+# File uploader for PDFs
+uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+
+# User input
+user_input = st.text_input("Enter your question:")
+
+# Process uploaded PDFs
+if uploaded_files:
+    documents = []
+    for uploaded_file in uploaded_files:
+        with open(uploaded_file.name, "wb") as f:
+            f.write(uploaded_file.getbuffer())
+        loader = PyPDFLoader(uploaded_file.name)
+        documents.extend(loader.load())
+
+    # Safe model loading without triggering meta tensor
+    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu")
+
+    embeddings = HuggingFaceEmbeddings(client=model)
+
+    vectorstore = FAISS.from_documents(documents, embeddings)
+    retriever = vectorstore.as_retriever()
+else:
+    retriever = None
+
+# Define agents
+retriever_agent = Agent(
+    role='Document Retriever',
+    goal='Retrieve relevant documents based on user queries.',
+    backstory='You are an expert at retrieving documents from large knowledge bases.',
+    tools=[search_tool],
+    llm=llm,
+)
+
+qa_agent = Agent(
+    role="Question Answering Agent",
+    goal="Provide accurate answers using retrieved documents.",
+    backstory="You are a knowledgeable AI assistant specializing in answering questions based on provided documents.",
+    tools=[],
+    llm=llm
+)
+
+# Define tasks
+retrieval_task = Task(
+    description="Retrieve relevant documents for the user's query.",
+    agent=retriever_agent,
+    expected_output="A list of documents relevant to the user's query."
+)
+
+qa_task = Task(
+    description="Provide an accurate answer to the user's question using the retrieved documents.",
+    agent=qa_agent,
+    expected_output="A comprehensive answer to the user's question."
+)
+
+# Create crew
+crew = Crew(
+    agents=[retriever_agent, qa_agent],
+    tasks=[retrieval_task, qa_task],
+    process=Process.sequential,
+    verbose=True
+)
+
+# Handle user input
+if user_input:
+    # Execute the crew
+    result = crew.kickoff()
+    st.write("Answer:", result)
