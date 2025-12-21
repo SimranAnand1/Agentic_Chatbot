@@ -6,7 +6,7 @@ import os
 load_dotenv()
 api_key = os.getenv('GROQ_API_KEY')
 
-model = GroqModel('gemma2-9b-it', api_key=api_key)
+model = GroqModel('groq/llama-3.1-8b-instant', api_key=api_key)
 agent = Agent(model)
 
 # First run

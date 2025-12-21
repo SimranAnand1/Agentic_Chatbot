@@ -14,7 +14,7 @@ def main():
     st.sidebar.title('Customization')
     model = st.sidebar.selectbox(
         'Choose a model',
-        ['groq/llama-3.1-8b-instant', 'groq/mixtral-8x7b-32768', 'groq/gemma2-9b-it']
+        ['groq/llama-3.1-8b-instant', 'openai/gpt-oss-20b', 'groq/compound-mini']
     )
 
     llm = LLM(

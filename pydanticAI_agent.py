@@ -32,7 +32,7 @@ def main():
     # Model selection in the sidebar
     model_name = st.sidebar.selectbox(
         "Select a model:",
-        options=["llama3-8b-8192", "mixtral-8x7b-32768", "gemma2-9b-it"],
+        options=['groq/llama-3.1-8b-instant', 'openai/gpt-oss-20b', 'groq/compound-mini'],
         index=2,  # Default is gemma2-9b-it
     )
     st.sidebar.write(f"**Current Model:** {model_name}")

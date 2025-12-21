@@ -38,7 +38,7 @@ def main():
     # Sidebar for customization
     st.sidebar.title('Settings')
     system_prompt = st.sidebar.text_input("System prompt:", value="You are a helpful assistant.")
-    model = st.sidebar.selectbox('Choose a model', ['llama3-8b-8192', 'mixtral-8x7b-32768', 'gemma2-9b-it'])
+    model = st.sidebar.selectbox('Choose a model', ['groq/llama-3.1-8b-instant', 'openai/gpt-oss-20b', 'groq/compound-mini'])
     memory_length = st.sidebar.slider('Memory length:', 1, 10, value=5)
 
     # Initialize conversation memory

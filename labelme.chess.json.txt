@@ -1,0 +1,218 @@
+{
+  "version": "4.5.6",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "black-bishop",
+      "points": [
+        [
+          250.5,
+          44.0
+        ],
+        [
+          285.0,
+          112.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "white-knight",
+      "points": [
+        [
+          128.5,
+          44.0
+        ],
+        [
+          168.5,
+          110.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "white-king",
+      "points": [
+        [
+          110.5,
+          153.5
+        ],
+        [
+          160.0,
+          253.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "white-bishop",
+      "points": [
+        [
+          91.0,
+          295.0
+        ],
+        [
+          136.5,
+          366.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "white-pawn",
+      "points": [
+        [
+          242.0,
+          253.5
+        ],
+        [
+          277.5,
+          306.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "white-queen",
+      "points": [
+        [
+          317.0,
+          33.0
+        ],
+        [
+          357.0,
+          117.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "white-bishop",
+      "points": [
+        [
+          367.5,
+          1.5
+        ],
+        [
+          401.0,
+          69.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "black-rook",
+      "points": [
+        [
+          484.5,
+          56.5
+        ],
+        [
+          522.5,
+          113.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "black-king",
+      "points": [
+        [
+          557.0,
+          108.0
+        ],
+        [
+          614.5,
+          206.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "black-pawn",
+      "points": [
+        [
+          384.0,
+          153.0
+        ],
+        [
+          412.5,
+          204.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "black-bishop",
+      "points": [
+        [
+          388.5,
+          242.0
+        ],
+        [
+          428.0,
+          310.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "black-pawn",
+      "points": [
+        [
+          517.5,
+          249.5
+        ],
+        [
+          553.0,
+          303.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "black-knight",
+      "points": [
+        [
+          466.5,
+          356.5
+        ],
+        [
+          516.0,
+          430.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "0af.jpg",
+  "imageData": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBg...",
+  "imageHeight": 512,
+  "imageWidth": 765
+}
